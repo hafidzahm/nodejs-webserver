@@ -2,7 +2,6 @@ const http = require('http');
 const requestListener = (request, response) => {
     response.setHeader('Content-Type', 'text/html')
 
-    response.statusCode = 200;
     //handling request
 
     const { url, method } = request
@@ -11,15 +10,18 @@ const requestListener = (request, response) => {
         //logika respon bila url bernilai '/'
         if (method === 'GET') {
             //jika client pake get
+            response.statusCode = 200
             response.end('<h1>Ini adalah homepage</h1>')
         } else {
             //jika tidak
+            response.statusCode = 400
             response.end(`<h1>Mohon maaf, halaman ini tidak dapat diakses pakai method ${method} request</h1>`)
         }
     } else if ( url === '/about') {
         //logika respon bila url bernilai '/about'
         if (method === 'GET') {
             //BILA PAKAI GET
+            response.statusCode = 200
             response.end('<h1>Halo! ini adalah halaman about.</h1>')
         } else if (method ==='POST'){
             //BILA PAKAI POST
@@ -32,15 +34,18 @@ const requestListener = (request, response) => {
             request.on('end', () => {
               body = Buffer.concat(body).toString();
               const {name} = JSON.parse(body);
+              response.statusCode = 200
               response.end(`<h1>Halo, ${name}! Ini adalah halaman about</h1>`);
             });
         } else {
             //bila tidak keduanya
+            response.statusCode = 400
             response.end(`<h1>Ups, maaf halaman ini tidak dapat diakses pake ${method} request</h1>`)
         }
             
     } else {
         //logika respon bila url tidak bernilai keduanya
+        response.statusCode = 404
         response.end('<h1>Halaman tidak ditemukan!</h1>')
     }
 
