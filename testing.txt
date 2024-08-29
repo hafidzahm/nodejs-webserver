@@ -1,0 +1,4 @@
+curl -X GET http://localhost:4000/about
+curl -X POST -H "Content-Type: application/json" http://localhost:4000/about -d "{\"name\": \"Hafizh\"}"
+curl -X PUT http://localhost:4000/about
+curl -X DELETE http://localhost:4000/about
