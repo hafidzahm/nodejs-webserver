@@ -10,3 +10,9 @@ status code request
     curl -X GET http://localhost:4000/test -i
      
     curl -X DELETE http://localhost:4000/ -i
+
+response header test
+
+http://localhost:4000/ on browser
+curl -X GET http://localhost:4000 -i
+(added Powered By)
