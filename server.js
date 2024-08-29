@@ -8,11 +8,11 @@ const requestListener = (request, response) => {
     const { method } = request
 
     if (method === 'GET') {
-        response.end(`<h1>GET RESPONSE</h1>`)
+        response.end('<h1>GET RESPONSE</h1>')
     }
 
     if (method === 'POST') {
-        response.end(`<h1>POST RESPONSE</h1>`)
+        response.end('<h1>POST RESPONSE</h1>')
     }
 
     if (method === 'PUT') {
@@ -20,7 +20,7 @@ const requestListener = (request, response) => {
     }
     
     if (method === 'DELETE') {
-        response.end(`<h1>DELETE RESPONSE</h1>`)
+        response.end('<h1>DELETE RESPONSE</h1>')
     }
 };
 
